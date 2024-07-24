@@ -1,0 +1,29 @@
+hr{
+    height:100px;
+    width:3px;
+    border-width:0;
+    color:#ffffff;
+    background-color:#f70000;
+    margin: 0px 10px;
+   }
+   .txt{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Inter, sans-serif;
+   }
+   .column{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+.row{
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}

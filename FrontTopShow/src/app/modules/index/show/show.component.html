@@ -1,0 +1,24 @@
+<div style="display: flex;flex-direction: column; width: 100%; ">
+
+
+    <div *ngFor='let evento of eventos' style="position: relative;">
+        <img src="{{evento.urlPortada}}" alt="Imagen" />
+
+        <div style="position: absolute; left: 30%; top: 60%;" class="column">
+            <button >
+                {{evento.artista}}
+            </button>
+            <div class="row">
+                <hr >
+                <div class="column" style="height: 100%;">
+                    <span class="txt" style="color: white;"> {{evento.fechaEvento}}</span>
+                    <span class="txt" style="color: rgb(158, 158, 158);"> {{evento.lugarEvento}}</span>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+   
+
+</div>

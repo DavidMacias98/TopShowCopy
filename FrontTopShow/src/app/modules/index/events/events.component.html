@@ -1,0 +1,26 @@
+<img style="width: 100%;
+height: 400px;
+" src="/assets/portadas/portadaEventos.jpg" alt="Imagen" />
+
+
+<div style="width: 100%; height: 100%; display: flex; flex-direction: column;align-items: center; gap: 15px;">
+
+
+
+    <div *ngFor='let evento of eventos'  >
+        <div style="display: flex; flex-direction: row; width: 1000px;height: 400px; background-color: rgb(253, 253, 253);">
+
+            <img style="width: 70%;" src="{{evento.urlPortada}}" alt="">
+            <div class="column">
+                <span class="txt" style="color: rgb(119, 119, 119); margin-left: 5px; font-size: 30px;"> {{evento.artista}}</span>
+                <div class="row">
+                    <hr>
+                    <div class="column" style="height: 100%;">
+                        <span class="txt" style="color: #1e3480;"> {{evento.fechaEvento}}</span>
+                        <span class="txt" style="color: #1e3480;"> {{evento.ciudad}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
