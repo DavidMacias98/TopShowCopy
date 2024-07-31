@@ -1,0 +1,16 @@
+.example-full-width {
+    width: 100%;
+    margin: 1%;
+}
+
+mat-form-field {
+    max-width: 400px;
+}
+.containerBtnRow {
+    width: 90%;
+    padding: 2%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}

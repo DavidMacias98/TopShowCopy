@@ -13,6 +13,23 @@ export class EventServiceService {
 
   }
 
+  login(param:any): Observable<Array<any>> {
+    const API_SERVER =  environment.URL_eventos +'admin/logers';
+   const headers: any ={
+     "Authorization": 'Bearer ' 
+  };
+  //Post options pass it to HttpHeaders Class 
+   const httpOptions = {
+      headers: new HttpHeaders(headers),
+  };
+   //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+  let data=this.http.post<Array<any>>( API_SERVER,param,httpOptions).pipe(
+    catchError(this.handleError))
+   console.log(data)
+  
+   return data
+  }
+
   getEvent(): Observable<Array<any>> {
     const API_SERVER =  environment.URL_eventos +'get/event';
    const headers: any ={
@@ -44,6 +61,41 @@ export class EventServiceService {
    console.log(data)
    return data
   }
+
+  putEvento(param:any): Observable<any> {
+    const API_SERVER =  environment.URL_eventos +'put/event';
+   const headers: any ={
+     "Authorization": 'Bearer ' 
+  };
+  //Post options pass it to HttpHeaders Class 
+   const httpOptions = {
+      headers: new HttpHeaders(headers),
+  };
+   //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+  let data=this.http.post<any>( API_SERVER,param,httpOptions).pipe(
+    catchError(this.handleError))
+   console.log(data)
+  
+   return data
+  }
+
+  cambiarContra(param:any): Observable<any> {
+    const API_SERVER =  environment.URL_eventos +'public/cpass/webusers';
+   const headers: any ={
+     "Authorization": 'Bearer ' 
+  };
+  //Post options pass it to HttpHeaders Class 
+   const httpOptions = {
+      headers: new HttpHeaders(headers),
+  };
+   //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+  let data=this.http.post<any>( API_SERVER,param,httpOptions).pipe(
+    catchError(this.handleError))
+   console.log(data)
+  
+   return data
+  }
+
 
 
   private handleError(error: HttpErrorResponse) {

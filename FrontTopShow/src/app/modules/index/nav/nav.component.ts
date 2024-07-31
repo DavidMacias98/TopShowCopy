@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  scrollToFooter(): void {
+    // Espera un breve momento para asegurarse de que el contenido se haya renderizado
+    setTimeout(() => {
+      const footerElement = document.getElementById('target-section');
+      if (footerElement) {
+        footerElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  }
+
 }

@@ -1,0 +1,60 @@
+<p>Agregar Nuevo Evento</p>
+
+
+
+<form [formGroup]="firstFormGroup" >
+
+    <div class="row" (ngSubmit)="putEvento()">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre de evento</mat-label>
+            <input  #name type="text" matInput placeholder="" formControlName="nombreEvento" required  >
+        </mat-form-field>   
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Artista</mat-label>
+            <input  #ape type="text" matInput placeholder="" formControlName="artista" required >
+        </mat-form-field>
+    </div>
+    <div class="row">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Fecha de evento</mat-label>
+            <input  formControlName="fechaEvento" required  matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Lugar de evento</mat-label>
+            <input  #ape type="text" matInput placeholder="" formControlName="lugarEvento" required >
+        </mat-form-field>
+    </div>
+    <div class="row">
+         
+        <mat-form-field class="example-full-width">
+            <mat-label>Tipo de evento</mat-label>
+            <mat-select formControlName="tipo" required>
+              <mat-option value="Portada">Portada</mat-option>
+              <mat-option value="Evento">Evento</mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Ciudad</mat-label>
+            <input  #ape type="text" matInput placeholder="" formControlName="ciudad" required >
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="example-full-width">
+            <mat-label>url de Portada</mat-label>
+            <input  #name type="text" matInput placeholder="" formControlName="urlPortada" required  >
+        </mat-form-field>   
+
+    </div>
+
+
+    <mat-card-actions class="containerBtnRow">
+        <button (click)="putEvento()"
+            class="btnok" mat-raised-button >GUARDAR</button>
+    </mat-card-actions>
+</form>
