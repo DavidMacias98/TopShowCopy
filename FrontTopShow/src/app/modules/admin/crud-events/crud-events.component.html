@@ -45,10 +45,9 @@
         </mat-form-field>
     </div>
     <div class="row">
-        <mat-form-field class="example-full-width">
-            <mat-label>url de Portada</mat-label>
-            <input  #name type="text" matInput placeholder="" formControlName="urlPortada" required  >
-        </mat-form-field>   
+        <div class="example-full-width">
+            <input  #name type="file" (input)="onFileChange($event);"   placeholder="" formControlName="urlPortada" required  >
+        </div>   
 
     </div>
 

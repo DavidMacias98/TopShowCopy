@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventServiceService } from 'src/app/services/event-service.service';
 import Swal from 'sweetalert2';
+import { RecuperarPassword } from '../../index/recuperar-password/recuperar-password';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-adminlogin',
@@ -13,9 +15,17 @@ export class AdminloginComponent {
 
   constructor(
     private eventService: EventServiceService
+    , private dialog : MatDialog
     , private router: Router
   ) { }
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
+  goRecovery(){
+      const dialogRef =  this.dialog.open(RecuperarPassword, { 
+      //  data: {studentXassists: data},
+        panelClass: 'custom-dialog-container', disableClose: true } );
+  } 
+
 
   login(user: any, pass: any) {
     let session: any;

@@ -15,12 +15,10 @@ export class EventServiceService {
 
   login(param:any): Observable<Array<any>> {
     const API_SERVER =  environment.URL_eventos +'admin/logers';
-   const headers: any ={
-     "Authorization": 'Bearer ' 
-  };
+  
   //Post options pass it to HttpHeaders Class 
    const httpOptions = {
-      headers: new HttpHeaders(headers),
+      headers: new HttpHeaders(),
   };
    //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
   let data=this.http.post<Array<any>>( API_SERVER,param,httpOptions).pipe(
@@ -95,7 +93,38 @@ export class EventServiceService {
   
    return data
   }
+  recuperarPass(param:any): Observable<any> {
+    const API_SERVER =  environment.URL_eventos +'public/rpass/webusers';
+   const headers: any ={
+     "Authorization": 'Bearer ' 
+  };
+  //Post options pass it to HttpHeaders Class 
+   const httpOptions = {
+      headers: new HttpHeaders(headers),
+  };
+   //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+  let data=this.http.post<any>( API_SERVER,param,httpOptions).pipe(
+    catchError(this.handleError))
+   console.log(data)
+  
+   return data
+  }
 
+  
+  upload(param:any): Observable<any> {
+    const API_SERVER =  environment.URL_eventos +'upload';
+   const headers: any ={
+     "Authorization": 'Bearer ' 
+  };
+  //Post options pass it to HttpHeaders Class 
+   const httpOptions = {
+      headers: new HttpHeaders(headers),
+  };
+   //const service = this.dataObj.restAPI.filter((m: any) => m.name === 'Paises')[0];
+   return this.http.post<any>( API_SERVER,param,httpOptions).pipe(
+    catchError(this.handleError))
+   
+  }
 
 
   private handleError(error: HttpErrorResponse) {

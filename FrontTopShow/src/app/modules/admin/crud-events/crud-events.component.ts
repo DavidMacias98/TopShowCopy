@@ -23,8 +23,8 @@ export interface Evento {
 
 
 
-
 export class CrudEventsComponent {
+  selectedFile: any
 
 
   constructor(private _formBuilder: FormBuilder, private services: EventServiceService) { }
@@ -37,6 +37,32 @@ export class CrudEventsComponent {
     ciudad: ['', Validators.required],
     urlPortada: ['', Validators.required],
   });
+
+
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  upload() {
+    const baseUrl = window.location.origin;
+          console.log('URL base del servidor:', baseUrl);
+    //if (this.selectedFile) {
+
+    const formData = new FormData
+    formData.append("file",this.selectedFile)
+      this.services.upload(formData).subscribe(
+        (data: any) => {
+          Swal.fire(
+            'Exito!',
+            'Archivo guardado!',
+            'success'
+          )
+          
+        }
+
+      );
+   // }
+  }
 
   putEvento() {
 
@@ -66,16 +92,20 @@ export class CrudEventsComponent {
     }
     console.log(evento);
 
+
+
+
     this.services.putEvento(evento).subscribe((data: any) => {
       Swal.fire(
         'Exito!',
         'Evento ingresado con exito!',
         'success'
       ).then(() => {
+        this.upload()
         this.firstFormGroup.markAsUntouched();
         this.firstFormGroup.markAsPristine();
         this.firstFormGroup.reset();
-        
+
       })
 
     }, (error: Error) => {

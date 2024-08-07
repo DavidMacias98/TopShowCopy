@@ -76,4 +76,23 @@ public class eventosServices {
 		return "Contraseña cambiada";
 	}
 	
+	public String recoveryPass(String id,  String nueva, String repetir) throws Exception {
+		AdminUser usser=null;
+		String response;
+		usser =  cuentaRepo.findByUsserAdmin(id);
+		
+		if(usser==null) {
+			throw new Exception("Usuario no existe");
+		
+		}	
+			
+		if(!nueva.equals(repetir)) {
+			throw new Exception("Contraseña nueva no coincide");
+		}
+		
+		usser.setPass(nueva);
+		this.cuentaRepo.save(usser);
+		return "Contraseña cambiada";
+	}
+	
 }

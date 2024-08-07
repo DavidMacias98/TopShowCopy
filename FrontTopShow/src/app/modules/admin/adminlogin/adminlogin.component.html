@@ -25,7 +25,7 @@
       <input #pass type="password" id="password" name="password" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500" autocomplete="off">
     </div>
     <!-- Remember Me Checkbox -->
-
+        <a (click)="goRecovery()">Recuperar contraseña</a>
     <!-- Login Button -->
     <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full" (click)="login(usser.value,pass.value)" >Login</button>
   </form>

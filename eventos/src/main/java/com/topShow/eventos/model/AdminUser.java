@@ -2,8 +2,10 @@ package com.topShow.eventos.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
-
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -12,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +22,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -70,4 +74,31 @@ public class AdminUser implements Serializable {
 	
 	@Column
 	private Boolean activo;
+	
+	
+//	@Transient
+//	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	
+//	public void encriptaClave() {
+//		if (!pass.isEmpty()) {
+//			BCryptPasswordEncoder encodex = new BCryptPasswordEncoder();
+//			 this.pass= encodex.encode(this.pass);	 
+//		}
+//	}
+//	
+//	public boolean validarClave(String clave) {
+//		return bCryptPasswordEncoder.matches(this.pass,clave);
+//	}
+//	
+//	@PrePersist
+//	public void prePersist() {
+//		this.encriptaClave();
+//		//this.roles=new ArrayList<>();
+//	}
+//	@PreUpdate
+//	public void preUpdate() {
+//		this.encriptaClave();
+//		//this.roles=new ArrayList<>();
+//	}
 }

@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { NavAdminComponent } from '../admin/nav-admin/nav-admin.component';
 import { FooterComponent } from './footer/footer.component';
+import { RecuperarPassword } from './recuperar-password/recuperar-password';
 @NgModule({
   declarations: [
     ShowComponent,
@@ -20,7 +21,7 @@ import { FooterComponent } from './footer/footer.component';
     EventsComponent,
     CambiarContraComponent,
     FooterComponent,
-    
+    RecuperarPassword
   ],
   imports: [
     CommonModule,
