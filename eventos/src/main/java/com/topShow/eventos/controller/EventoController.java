@@ -95,7 +95,7 @@ public class EventoController {
 	 private static final String UPLOAD_DIR = "C:\\PROJECT\\Project Git\\REPOS\\TopShowCopy\\FrontTopShow\\src\\assets\\portadas\\";
 
 	    @PostMapping("upload")
-	    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile file) {
+	    public ResponseEntity<?> uploadFile(@RequestParam MultipartFile file) {
 	        if (file.isEmpty()) {
 	            return ResponseEntity.badRequest().body("File is empty");
 	        }
@@ -106,9 +106,12 @@ public class EventoController {
 	            // Guardar el archivo en el directorio especificado
 	            Files.write(path, file.getBytes());
 
-	            return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
+	            	            
 	        } catch (IOException e) {
-	            return ResponseEntity.status(500).body("Error uploading file: " + e.getMessage());
+				return ResponseEntity.badRequest().body(new BadResponse("Error uploading file: " + e.getMessage()));
+
 	        }
+			return ResponseEntity.ok().body(new Response("\\assets\\portadas\\" + file.getOriginalFilename()));
+
 	    }
 }

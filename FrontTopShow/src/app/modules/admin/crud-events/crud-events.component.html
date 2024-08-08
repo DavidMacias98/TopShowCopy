@@ -4,7 +4,7 @@
 
 <form [formGroup]="firstFormGroup" >
 
-    <div class="row" (ngSubmit)="putEvento()">
+    <div class="row" (ngSubmit)="upload()">
         <mat-form-field class="example-full-width">
             <mat-label>Nombre de evento</mat-label>
             <input  #name type="text" matInput placeholder="" formControlName="nombreEvento" required  >
@@ -53,7 +53,7 @@
 
 
     <mat-card-actions class="containerBtnRow">
-        <button (click)="putEvento()"
+        <button (click)="upload()"
             class="btnok" mat-raised-button >GUARDAR</button>
     </mat-card-actions>
 </form>
